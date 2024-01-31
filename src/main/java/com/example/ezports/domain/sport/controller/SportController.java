@@ -1,8 +1,13 @@
 package com.example.ezports.domain.sport.controller;
 
+import com.example.ezports.domain.sport.dto.SportRequestDTO;
+import com.example.ezports.domain.sport.dto.SportResponseDTO;
 import com.example.ezports.domain.sport.service.SportService;
+import com.example.ezports.global.common.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/sports")
@@ -11,11 +16,15 @@ public class SportController {
     private final SportService sportService;
 
     @PostMapping
-    public void createSport() {
+    public ApiResponse<SportResponseDTO.createSport> createSport(
+            @RequestBody SportRequestDTO.createSport request
+    ) {
+        return ApiResponse.onSuccess(sportService.createSport(request));
     }
 
     @GetMapping
-    public void getSports() {
+    public ApiResponse<List<SportResponseDTO.getSport>> getSports() {
+        return ApiResponse.onSuccess(sportService.getSports());
     }
 
     @GetMapping("/{sportId}/leagues")
@@ -23,11 +32,20 @@ public class SportController {
     }
 
     @PutMapping("/{sportId}")
-    public void updateSport() {
+    public ApiResponse updateSport(
+            @PathVariable Long sportId,
+            @RequestBody SportRequestDTO.updateSport request
+    ) {
+        sportService.updateSport(sportId, request);
+        return ApiResponse.onSuccess("");
     }
 
     @DeleteMapping("/{sportId}")
-    public void deleteSport() {
+    public ApiResponse deleteSport(
+            @PathVariable Long sportId
+    ) {
+        sportService.deleteSport(sportId);
+        return ApiResponse.onSuccess("");
     }
 
 }

@@ -17,4 +17,8 @@ public class Sport {
     private Long id;
 
     private String name;
+
+    public void updateSport(String name) {
+        this.name = name;
+    }
 }
