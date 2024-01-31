@@ -1,9 +1,7 @@
 package com.example.ezports.domain.member.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.ezports.domain.common.BaseDateTimeEntity;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -11,8 +9,17 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member extends BaseDateTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+//    @Enumerated(EnumType.STRING)
+//    private LoginType loginType;
+    private String email;
+
+    private String password;
+
+    private MemberRole role;
+
 }
