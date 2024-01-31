@@ -19,8 +19,13 @@ public class Team extends BaseDateTimeEntity {
 
     private String information;
 
-    @JoinColumn(name = "sportId")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Sport sport;
+//    @JoinColumn(name = "sportId")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Sport sport;
+
+    public void updateTeam(String name, String information) {
+        this.name = name;
+        this.information = information;
+    }
 
 }

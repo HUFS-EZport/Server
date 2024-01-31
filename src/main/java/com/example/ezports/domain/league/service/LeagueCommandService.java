@@ -14,10 +14,6 @@ public class LeagueCommandService {
         return leagueRepository.save(league);
     }
 
-    public void updateLeague(League league) {
-        leagueRepository.save(league);
-    }
-
     public void deleteLeague(League league) {
         leagueRepository.delete(league);
     }
