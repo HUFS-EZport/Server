@@ -21,6 +21,12 @@ public class LeagueController {
     ) {
     }
 
+    @GetMapping("/{leagueId}/teams")
+    public void getTeams(
+            @PathVariable Long leagueId;
+    ) {
+    }
+
     @PutMapping("/{leagueId}")
     public void updateLeague(
             @PathVariable Long leagueId;
