@@ -1,9 +1,7 @@
 package com.example.ezports.domain.team.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.ezports.domain.sport.entity.Sport;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -15,4 +13,13 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String name;
+
+    private String information;
+
+    @JoinColumn(name = "sportId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Sport sport;
+
 }
