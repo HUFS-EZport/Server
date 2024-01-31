@@ -22,4 +22,14 @@ public class Member extends BaseDateTimeEntity {
 
     private MemberRole role;
 
+    private MemberStatus status;
+
+    public void updateStatus(MemberStatus status) {
+        this.status = status;
+    }
+
+    public void changePassword(String password) {
+        this.password = password;
+    }
+
 }
