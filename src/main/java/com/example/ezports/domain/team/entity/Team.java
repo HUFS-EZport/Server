@@ -1,5 +1,6 @@
 package com.example.ezports.domain.team.entity;
 
+import com.example.ezports.domain.common.BaseDateTimeEntity;
 import com.example.ezports.domain.sport.entity.Sport;
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,7 +10,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Team {
+public class Team extends BaseDateTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
