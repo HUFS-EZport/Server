@@ -18,6 +18,8 @@ public class Match extends BaseDateTimeEntity {
 
     private String location;
 
+    private String matchDate;
+
     @JoinColumn(name = "leagueId")
     @ManyToOne(fetch = FetchType.LAZY)
     private League league;
@@ -30,5 +32,9 @@ public class Match extends BaseDateTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Team awayTeam;
 
+    public void updateMatch(String location, String matchDate) {
+        this.location = location;
+        this.matchDate = matchDate;
+    }
 
 }
