@@ -1,11 +1,15 @@
 package com.example.ezports.domain.league.entity;
 
 import com.example.ezports.domain.common.BaseDateTimeEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.ezports.domain.mapping.entity.Participant;
+import com.example.ezports.domain.team.entity.Team;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -20,4 +24,12 @@ public class League extends BaseDateTimeEntity {
     private String name;
 
     private String information;
+
+    @OneToMany(mappedBy = "league", fetch = FetchType.LAZY)
+    private Set<Participant> participants = new HashSet<>();
+
+    public void updateLeague(String name, String information) {
+        this.name = name;
+        this.information = information;
+    }
 }
