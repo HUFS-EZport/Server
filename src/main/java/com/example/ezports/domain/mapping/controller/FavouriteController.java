@@ -14,37 +14,37 @@ public class FavouriteController {
 
     @PostMapping("/league/{leagueId}")
     public void createFavouriteLeague(
-            @PathVariable Long leagueId;
+            @PathVariable Long leagueId
     ) {
     }
 
     @PostMapping("/team/{teamId}")
     public void createFavouriteTeam(
-            @PathVariable Long teamId;
+            @PathVariable Long teamId
     ) {
     }
 
     @GetMapping("/league/{leagueId}")
     public void getFavouriteLeague(
-            @PathVariable Long leagueId;
+            @PathVariable Long leagueId
     ) {
     }
 
     @GetMapping("/team/{teamId}")
     public void getFavouriteTeam(
-            @PathVariable Long teamId;
+            @PathVariable Long teamId
     ) {
     }
 
     @DeleteMapping("/league/{leagueId}")
     public void deleteFavouriteLeague(
-            @PathVariable Long leagueId;
+            @PathVariable Long leagueId
     ) {
     }
 
     @DeleteMapping("/team/{teamId}")
     public void deleteFavouriteTeam(
-            @PathVariable Long teamId;
+            @PathVariable Long teamId
     ) {
     }
 

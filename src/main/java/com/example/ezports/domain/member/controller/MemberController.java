@@ -24,13 +24,13 @@ public class MemberController {
 
     @GetMapping
     public void getMember(
-            @PathVariable Long memberId;
+            @PathVariable Long memberId
     ) {
     }
 
     @PatchMapping
     public void withdraw(
-            @PathVariable Long memberId;
+            @PathVariable Long memberId
     ) {
     }
 
