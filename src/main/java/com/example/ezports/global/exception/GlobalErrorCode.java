@@ -31,6 +31,10 @@ public enum GlobalErrorCode {
     //League
     //404 Not Found - 찾을 수 없음
     League_NOT_FOUND(NOT_FOUND, "존재하지 않는 리그입니다."),
+
+    //Match
+    //404 Not Found - 찾을 수 없음
+    MATCH_NOT_FOUND(NOT_FOUND, "존재하지 않는 경기입니다."),
     ;
 
 
