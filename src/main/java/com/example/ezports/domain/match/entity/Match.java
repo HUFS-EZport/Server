@@ -20,6 +20,13 @@ public class Match extends BaseDateTimeEntity {
 
     private String matchDate;
 
+    private Integer homeTeamScore;
+
+    private Integer awayTeamScore;
+
+    @Enumerated(EnumType.STRING)
+    private MatchStatus matchStatus;
+
     @JoinColumn(name = "leagueId")
     @ManyToOne(fetch = FetchType.LAZY)
     private League league;

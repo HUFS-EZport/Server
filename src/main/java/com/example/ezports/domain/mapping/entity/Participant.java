@@ -23,4 +23,8 @@ public class Participant {
     @ManyToOne(fetch = FetchType.LAZY)
     private League league;
 
+    public void updateParticipant(Team team, League league) {
+        this.team = team;
+        this.league = league;
+    }
 }

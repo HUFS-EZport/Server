@@ -28,4 +28,13 @@ public class TeamResponseDTO {
         private String information;
         private List<String> leagueNames;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class getParticipantTeam {
+        private Long id;
+        private String logoUrl;
+    }
 }

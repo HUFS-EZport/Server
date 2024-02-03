@@ -25,6 +25,8 @@ public class League extends BaseDateTimeEntity {
 
     private String information;
 
+    private String logoUrl;
+
     @OneToMany(mappedBy = "league", fetch = FetchType.LAZY)
     private Set<Participant> participants = new HashSet<>();
 
