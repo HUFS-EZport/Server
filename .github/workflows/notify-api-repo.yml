@@ -1,0 +1,47 @@
+name: 'Triggering API Repository Action'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main # Workflow triggers here
+
+env:
+  # Target repository owner name here.
+  # If target repo's owner and this repo's are same, using ${{ github.repository_owner }}
+  OWNER: ${{ github.repository_owner }}
+
+  # Target repository name here
+  REPO: API-Integration
+
+  # Target repository branch name here
+  BRANCH: main
+
+  # Target action ID here
+  ACTION_ID: 84801199
+
+  # Github Token.
+  # Scope of ${{ github.token }} is restricted into only this repository.
+  # I recommend using follow: https://docs.github.com/ko/actions/security-guides/using-secrets-in-github-actions
+  GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+
+jobs:
+  notify:
+    name: 'Send Action Trigger'
+    runs-on: ubuntu-latest
+
+    steps:
+      # Trying to trigger action by Github REST API
+      - uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          retries: 3
+          github-token: ${{ env.GITHUB_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: '${{ env.OWNER }}',
+              repo: '${{ env.REPO }}',
+              workflow_id: '${{ env.ACTION_ID }}',
+              ref: '${{ env.BRANCH }}'
+            })
