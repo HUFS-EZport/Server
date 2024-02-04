@@ -13,6 +13,7 @@ public enum GlobalErrorCode {
     //  Member
     // 400 BAD_REQUEST - 잘못된 요청
     NOT_VALID_EMAIL(BAD_REQUEST, "유효하지 않은 이메일 입니다."),
+    NOT_VALID_CODE(BAD_REQUEST, "유효하지 않은 코드 입니다."),
 
     // 401 Unauthorized - 권한 없음
     INVALID_TOKEN(UNAUTHORIZED, "토큰이 유효하지 않습니다."),
