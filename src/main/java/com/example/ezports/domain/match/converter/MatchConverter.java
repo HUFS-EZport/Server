@@ -43,8 +43,11 @@ public class MatchConverter {
                 .leagueId(match.getLeague().getId())
                 .homeTeamName(match.getHomeTeam().getName())
                 .awayTeamName(match.getAwayTeam().getName())
+                .homeTeamScore(match.getHomeTeamScore())
+                .awayTeamScore(match.getAwayTeamScore())
                 .location(match.getLocation())
                 .matchDate(match.getMatchDate())
+                .streamingUrls(match.getStreamingUrls())
                 .build();
     }
 
