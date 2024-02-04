@@ -19,6 +19,8 @@ public class Team extends BaseDateTimeEntity {
 
     private String information;
 
+    private String logoUrl;
+
 //    @JoinColumn(name = "sportId")
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    private Sport sport;

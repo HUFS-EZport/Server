@@ -27,8 +27,11 @@ public class SportController {
         return ApiResponse.onSuccess(sportService.getSports());
     }
 
-    @GetMapping("/{sportId}/leagues")
-    public void getLeagues() {
+    @GetMapping("/{sportId}")
+    public ApiResponse<SportResponseDTO.getSportInfo> getLeagues(
+            @PathVariable Long sportId
+    ) {
+        return ApiResponse.onSuccess(sportService.getSportInfo(sportId));
     }
 
     @PutMapping("/{sportId}")

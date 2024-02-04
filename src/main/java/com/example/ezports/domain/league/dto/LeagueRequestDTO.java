@@ -10,6 +10,7 @@ public class LeagueRequestDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class createLeague {
+        private Long sportId;
         private String name;
         private String information;
     }

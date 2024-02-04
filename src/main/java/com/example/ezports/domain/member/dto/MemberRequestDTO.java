@@ -12,6 +12,7 @@ public class MemberRequestDTO {
     public static class createMember {
         private String email;
         private String password;
+        private String nickname;
     }
 
     @Builder

@@ -1,5 +1,6 @@
-package com.example.ezports.domain.sport.entity;
+package com.example.ezports.domain.member.entity;
 
+import com.example.ezports.domain.common.BaseDateTimeEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,16 +12,8 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Sport {
+public class EmailCode extends BaseDateTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String name;
-
-    private String imageUrl;
-
-    public void updateSport(String name) {
-        this.name = name;
-    }
 }

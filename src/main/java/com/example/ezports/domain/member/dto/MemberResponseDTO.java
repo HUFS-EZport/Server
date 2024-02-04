@@ -17,6 +17,7 @@ public class MemberResponseDTO {
     public static class createMember {
         private Long id;
         private String email;
+        private String nickname;
         private MemberStatus status;
         private MemberRole role;
     }

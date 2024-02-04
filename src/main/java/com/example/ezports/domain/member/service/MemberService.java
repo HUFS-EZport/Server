@@ -20,7 +20,7 @@ public class MemberService {
 
     @Transactional
     public MemberResponseDTO.createMember createMember(MemberRequestDTO.createMember request) {
-        Member member = memberConverter.toMember(request.getEmail(), request.getPassword());
+        Member member = memberConverter.toMember(request.getEmail(), request.getPassword(), request.getNickname());
         Member savedMember = memberCommandService.createMember(member);
         return memberConverter.toCreateMember(savedMember);
     }

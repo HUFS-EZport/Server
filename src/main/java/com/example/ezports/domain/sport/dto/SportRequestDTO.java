@@ -11,6 +11,7 @@ public class SportRequestDTO {
     @AllArgsConstructor
     public static class createSport {
         private String name;
+        private String imageUrl;
     }
 
     @Builder
