@@ -11,6 +11,8 @@ import com.example.ezports.domain.match.converter.MatchConverter;
 import com.example.ezports.domain.match.dto.MatchResponseDTO;
 import com.example.ezports.domain.match.entity.Match;
 import com.example.ezports.domain.match.service.MatchQueryService;
+import com.example.ezports.domain.sport.entity.Sport;
+import com.example.ezports.domain.sport.service.SportQueryService;
 import com.example.ezports.domain.team.dto.TeamResponseDTO;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -29,10 +31,12 @@ public class LeagueService {
     private final ParticipantService participantService;
     private final MatchQueryService matchQueryService;
     private final MatchConverter matchConverter;
+    private final SportQueryService sportQueryService;
 
     @Transactional
     public LeagueResponseDTO.createLeague createLeague(LeagueRequestDTO.createLeague request) {
-        League league = leagueConverter.toLeague(request.getName(), request.getInformation());
+        Sport sport = sportQueryService.getSport(request.getSportId());
+        League league = leagueConverter.toLeague(request.getName(), request.getInformation(), sport);
         League savedLeague = leagueCommandService.createLeague(league);
         return leagueConverter.toCreateLeague(savedLeague);
     }

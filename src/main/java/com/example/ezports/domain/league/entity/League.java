@@ -2,6 +2,7 @@ package com.example.ezports.domain.league.entity;
 
 import com.example.ezports.domain.common.BaseDateTimeEntity;
 import com.example.ezports.domain.mapping.entity.Participant;
+import com.example.ezports.domain.sport.entity.Sport;
 import com.example.ezports.domain.team.entity.Team;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,6 +30,10 @@ public class League extends BaseDateTimeEntity {
 
     @OneToMany(mappedBy = "league", fetch = FetchType.LAZY)
     private Set<Participant> participants = new HashSet<>();
+
+    @JoinColumn(name = "sportId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Sport sport;
 
     public void updateLeague(String name, String information) {
         this.name = name;

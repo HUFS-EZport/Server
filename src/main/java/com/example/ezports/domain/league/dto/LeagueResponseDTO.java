@@ -34,5 +34,15 @@ public class LeagueResponseDTO {
         private List<MatchResponseDTO.getLeagueMatch> matches;
     }
 
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class getLeagues {
+        private Long id;
+        private String name;
+        private String logoUrl;
+    }
+
 
 }

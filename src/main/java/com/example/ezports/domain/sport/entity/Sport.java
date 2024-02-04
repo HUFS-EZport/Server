@@ -18,6 +18,8 @@ public class Sport {
 
     private String name;
 
+    private String imageUrl;
+
     public void updateSport(String name) {
         this.name = name;
     }
