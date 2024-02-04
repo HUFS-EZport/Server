@@ -13,10 +13,11 @@ import java.util.stream.Collectors;
 
 public class MemberConverter {
 
-    public Member toMember(String email, String password) {
+    public Member toMember(String email, String password, String nickname) {
         return Member.builder()
                 .email(email)
                 .password(password)
+                .nickname(nickname)
                 .status(MemberStatus.ACTIVE)
                 .role(MemberRole.ROLE_USER)
                 .build();
@@ -26,6 +27,7 @@ public class MemberConverter {
         return MemberResponseDTO.createMember.builder()
                 .id(member.getId())
                 .email(member.getEmail())
+                .nickname(member.getNickname())
                 .status(member.getStatus())
                 .role(member.getRole())
                 .build();
