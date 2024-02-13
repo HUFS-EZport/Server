@@ -1,0 +1,39 @@
+name: 'Publish test server'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  
+env:
+  WITH_SSH: 'ssh -o StrictHostKeyChecking=no -i ./rsa_id -p ${{ secrets.TEST_SERVER_SSH_PORT }} ${{ secrets.TEST_SERVER_SSH_USERNAME }}@${{ secrets.TEST_SERVER_SSH_URL }}'
+
+jobs:
+  publish:
+    name: 'Publish test server'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Get SSH key'
+        run: |
+          echo "${{ secrets.TEST_SERVER_SSH_KEY }}" > ./rsa_id
+          chmod 600 ./rsa_id
+      
+      - name: 'Stop exist server'
+        run: |
+          ${{ env.WITH_SSH }} "cd ~/Server && docker-compose down"
+
+      - name: 'Pull latest code'
+        if: always()
+        run: |
+          ${{ env.WITH_SSH }} "cd ~/Server && git pull origin main"
+
+      - name: 'Start server'
+        if: always()
+        run: |
+          echo "export LOCAL_DB_URL=${{ secrets.TEST_SERVER_DB_URL }}" >> ./run.sh
+          echo "export MYSQL_PASSWORD=${{ secrets.TEST_SERVER_DB_PW }}" >> ./run.sh
+          echo "cd ~/Server && chmod +x run-by-docker.sh && ./run-by-docker.sh" >> ./run.sh
+
+          ${{ env.WITH_SSH }} "bash -s" < ./run.sh
