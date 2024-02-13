@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  ezports-backend:
+    container_name: ezports-backend
+    image: ezports-backend
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    restart: unless-stopped
