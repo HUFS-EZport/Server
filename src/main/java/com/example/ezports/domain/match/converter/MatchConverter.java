@@ -5,15 +5,17 @@ import com.example.ezports.domain.match.dto.MatchResponseDTO;
 import com.example.ezports.domain.match.entity.Match;
 import com.example.ezports.domain.match.entity.MatchStatus;
 import com.example.ezports.domain.team.entity.Team;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class MatchConverter {
 
-    public Match toMatch(League league, Team homeTeam, Team awayTeam, String location, String matchDate) {
+    public Match toMatch(League league, Team homeTeam, Team awayTeam, String location, LocalDateTime matchDate) {
         return Match.builder()
                 .league(league)
                 .location(location)
@@ -34,6 +36,7 @@ public class MatchConverter {
                 .awayTeamName(match.getAwayTeam().getName())
                 .location(match.getLocation())
                 .matchDate(match.getMatchDate())
+                .matchStatus(match.getMatchStatus())
                 .build();
     }
 
@@ -47,6 +50,7 @@ public class MatchConverter {
                 .awayTeamScore(match.getAwayTeamScore())
                 .location(match.getLocation())
                 .matchDate(match.getMatchDate())
+                .matchStatus(match.getMatchStatus())
                 .streamingUrls(match.getStreamingUrls())
                 .build();
     }

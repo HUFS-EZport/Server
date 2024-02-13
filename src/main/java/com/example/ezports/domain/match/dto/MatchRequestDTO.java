@@ -2,6 +2,8 @@ package com.example.ezports.domain.match.dto;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
 public class MatchRequestDTO {
@@ -15,7 +17,7 @@ public class MatchRequestDTO {
         private Long homeTeamId;
         private Long awayTeamId;
         private String location;
-        private String matchDate;
+        private LocalDateTime matchDate;
     }
 
     @Builder
@@ -24,6 +26,6 @@ public class MatchRequestDTO {
     @AllArgsConstructor
     public static class updateMatch {
         private String location;
-        private String matchDate;
+        private LocalDateTime matchDate;
     }
 }

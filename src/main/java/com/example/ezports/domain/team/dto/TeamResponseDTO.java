@@ -35,6 +35,7 @@ public class TeamResponseDTO {
     @AllArgsConstructor
     public static class getParticipantTeam {
         private Long id;
+        private String name;
         private String logoUrl;
     }
 }

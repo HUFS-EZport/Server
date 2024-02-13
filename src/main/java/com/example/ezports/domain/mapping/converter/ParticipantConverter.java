@@ -22,6 +22,7 @@ public class ParticipantConverter {
         return participants.stream()
                 .map(participant -> TeamResponseDTO.getParticipantTeam.builder()
                         .id(participant.getTeam().getId())
+                        .name(participant.getTeam().getName())
                         .logoUrl(participant.getTeam().getLogoUrl())
                         .build())
                 .collect(Collectors.toList());
