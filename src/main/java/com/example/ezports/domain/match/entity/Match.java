@@ -15,6 +15,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "matches")
 public class Match extends BaseDateTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
