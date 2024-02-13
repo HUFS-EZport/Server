@@ -19,6 +19,15 @@ public class MemberRequestDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
+    public static class login {
+        private String email;
+        private String password;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class changePassword {
         private String password;
     }

@@ -26,6 +26,17 @@ public class MemberResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
+    public static class login {
+        private Long memberId;
+        private String accessToken;
+        private String refreshToken;
+        private String role;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class getMember {
         private Long id;
         private String email;
