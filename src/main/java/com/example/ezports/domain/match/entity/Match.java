@@ -6,6 +6,7 @@ import com.example.ezports.domain.team.entity.Team;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "matches")
 public class Match extends BaseDateTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +23,7 @@ public class Match extends BaseDateTimeEntity {
 
     private String location;
 
-    private String matchDate;
+    private LocalDateTime matchDate;
 
     private Integer homeTeamScore;
 
@@ -46,7 +48,7 @@ public class Match extends BaseDateTimeEntity {
     @ElementCollection
     private List<String> streamingUrls = new ArrayList<>();
 
-    public void updateMatch(String location, String matchDate) {
+    public void updateMatch(String location, LocalDateTime matchDate) {
         this.location = location;
         this.matchDate = matchDate;
     }
