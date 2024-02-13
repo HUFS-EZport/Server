@@ -19,7 +19,7 @@ public class MemberConverter {
                 .password(password)
                 .nickname(nickname)
                 .status(MemberStatus.ACTIVE)
-                .role(MemberRole.ROLE_USER)
+                .role(MemberRole.USER)
                 .build();
     }
 
@@ -30,6 +30,15 @@ public class MemberConverter {
                 .nickname(member.getNickname())
                 .status(member.getStatus())
                 .role(member.getRole())
+                .build();
+    }
+
+    public MemberResponseDTO.login toLogin(Member member, String accessToken, String refreshToken) {
+        return MemberResponseDTO.login.builder()
+                .memberId(member.getId())
+                .accessToken(accessToken)
+                .refreshToken(refreshToken)
+                .role(member.getRole().toString())
                 .build();
     }
 

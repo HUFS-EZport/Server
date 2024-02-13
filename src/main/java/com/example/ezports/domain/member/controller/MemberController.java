@@ -40,10 +40,14 @@ public class MemberController {
         return ApiResponse.onSuccess(memberService.createMember(request));
     }
 
-
     @PostMapping("/login")
-    public void login() {
+    public ApiResponse<MemberResponseDTO.login> login(
+            @RequestBody MemberRequestDTO.login request
+    ) {
+        return ApiResponse.onSuccess(memberService.login(request));
     }
+
+
 
     @GetMapping("/all")
     public ApiResponse<List<MemberResponseDTO.getMember>> getMembers() {
