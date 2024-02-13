@@ -3,6 +3,7 @@ package com.example.ezports.domain.match.dto;
 import com.example.ezports.domain.match.entity.MatchStatus;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -19,7 +20,8 @@ public class MatchResponseDTO {
         private String homeTeamName;
         private String awayTeamName;
         private String location;
-        private String matchDate;
+        private LocalDateTime matchDate;
+        private MatchStatus matchStatus;
     }
     @Builder
     @Getter
@@ -32,8 +34,11 @@ public class MatchResponseDTO {
         private String awayTeamName;
         private Integer homeTeamScore;
         private Integer awayTeamScore;
+        private String homeTeamLogoUrl;
+        private String awayTeamLogoUrl;
         private String location;
-        private String matchDate;
+        private LocalDateTime matchDate;
+        private MatchStatus matchStatus;
         private List<String> streamingUrls;
     }
 
@@ -47,7 +52,7 @@ public class MatchResponseDTO {
         private String awayTeamName;
         private Integer homeTeamScore;
         private Integer awayTeamScore;
-        private String matchDate;
+        private LocalDateTime matchDate;
         private MatchStatus matchStatus;
 
     }

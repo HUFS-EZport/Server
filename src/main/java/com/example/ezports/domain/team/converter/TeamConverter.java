@@ -1,16 +1,21 @@
 package com.example.ezports.domain.team.converter;
 
+import com.example.ezports.domain.league.dto.LeagueResponseDTO;
+import com.example.ezports.domain.league.entity.League;
 import com.example.ezports.domain.team.dto.TeamResponseDTO;
 import com.example.ezports.domain.team.entity.Team;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class TeamConverter {
 
-    public Team toTeam(String teamName, String information) {
+    public Team toTeam(String teamName, String information, League league) {
         return Team.builder()
                 .name(teamName)
                 .information(information)
+                .league(league)
                 .build();
     }
 
@@ -22,11 +27,12 @@ public class TeamConverter {
                 .build();
     }
 
-    public TeamResponseDTO.getTeam toGetTeam(Team team) {
+    public TeamResponseDTO.getTeam toGetTeam(Team team, List<LeagueResponseDTO.getLeagues> leagues) {
         return TeamResponseDTO.getTeam.builder()
                 .id(team.getId())
                 .name(team.getName())
                 .information(team.getInformation())
+                .leagues(leagues)
                 .build();
     }
 }
