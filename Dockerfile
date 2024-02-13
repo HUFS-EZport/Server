@@ -18,9 +18,6 @@ COPY ./gradlew ./gradlew
 COPY ./settings.gradle ./settings.gradle
 COPY ./gradle ./gradle
 
-# Copy aplication properties
-COPY ./application.properties ./src/main/resources/application.properties
-
 # Copy scripts
 COPY ./docker/cp-jar.sh ./cp-jar.sh
 
