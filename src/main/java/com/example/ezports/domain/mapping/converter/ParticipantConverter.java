@@ -1,5 +1,6 @@
 package com.example.ezports.domain.mapping.converter;
 
+import com.example.ezports.domain.league.dto.LeagueResponseDTO;
 import com.example.ezports.domain.league.entity.League;
 import com.example.ezports.domain.mapping.entity.Participant;
 import com.example.ezports.domain.team.dto.TeamResponseDTO;
@@ -24,6 +25,16 @@ public class ParticipantConverter {
                         .id(participant.getTeam().getId())
                         .name(participant.getTeam().getName())
                         .logoUrl(participant.getTeam().getLogoUrl())
+                        .build())
+                .collect(Collectors.toList());
+    }
+
+    public List<LeagueResponseDTO.getLeagues> toGetLeagues(List<Participant> participants) {
+        return participants.stream()
+                .map(participant -> LeagueResponseDTO.getLeagues.builder()
+                        .id(participant.getLeague().getId())
+                        .name(participant.getLeague().getName())
+                        .logoUrl(participant.getLeague().getLogoUrl())
                         .build())
                 .collect(Collectors.toList());
     }

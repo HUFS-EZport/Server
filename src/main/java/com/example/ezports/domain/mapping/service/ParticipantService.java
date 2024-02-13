@@ -3,6 +3,7 @@ package com.example.ezports.domain.mapping.service;
 import com.example.ezports.domain.league.entity.League;
 import com.example.ezports.domain.mapping.entity.Participant;
 import com.example.ezports.domain.mapping.repository.ParticipantRepository;
+import com.example.ezports.domain.team.entity.Team;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +19,14 @@ public class ParticipantService {
     public Participant createParticipant(Participant participant) {
         return participantRepository.save(participant);
     }
+    @Transactional
     public List<Participant> getParticipants(League league) {
         return participantRepository.findAllByLeague(league);
+    }
+
+    @Transactional
+    public List<Participant> getLeaguesByTeam(Team team) {
+        return participantRepository.findAllByTeam(team);
     }
     public void deleteParticipant(Participant participant) {
         participantRepository.delete(participant);

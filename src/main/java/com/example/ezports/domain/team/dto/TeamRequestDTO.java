@@ -11,6 +11,7 @@ public class TeamRequestDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class createTeam {
+        private Long leagueId;
         private String name;
         private String information;
     }

@@ -1,5 +1,6 @@
 package com.example.ezports.domain.team.dto;
 
+import com.example.ezports.domain.league.dto.LeagueResponseDTO;
 import lombok.*;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class TeamResponseDTO {
         private Long id;
         private String name;
         private String information;
-        private List<String> leagueNames;
+        private List<LeagueResponseDTO.getLeagues> leagues;
     }
 
     @Builder

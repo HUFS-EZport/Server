@@ -1,6 +1,7 @@
 package com.example.ezports.domain.team.entity;
 
 import com.example.ezports.domain.common.BaseDateTimeEntity;
+import com.example.ezports.domain.league.entity.League;
 import com.example.ezports.domain.sport.entity.Sport;
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,6 +21,10 @@ public class Team extends BaseDateTimeEntity {
     private String information;
 
     private String logoUrl;
+
+    @JoinColumn(name = "leagueId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private League league;
 
 //    @JoinColumn(name = "sportId")
 //    @ManyToOne(fetch = FetchType.LAZY)
