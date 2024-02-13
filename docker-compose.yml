@@ -10,3 +10,6 @@ services:
     ports:
       - 8080:8080
     restart: unless-stopped
+    environment:
+      - LOCAL_DB_URL=${LOCAL_DB_URL}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
