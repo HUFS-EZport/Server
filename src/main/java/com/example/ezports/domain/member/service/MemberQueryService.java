@@ -19,6 +19,11 @@ public class MemberQueryService {
                 .orElseThrow(() -> new GeneralException(GlobalErrorCode.MEMBER_NOT_FOUND));
     }
 
+    public Member getMemberByEmail(String email) {
+        return memberRepository.findByEmail(email)
+                .orElseThrow(() -> new GeneralException(GlobalErrorCode.MEMBER_NOT_FOUND));
+    }
+
     public List<Member> getMembers() {
         return memberRepository.findAll();
     }
