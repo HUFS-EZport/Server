@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  ezports-backend:
+    container_name: ezports-backend
+    image: ezports-backend
+    build: 
+      context: ./
+      dockerfile: ./test-server.dockerfile
+    ports:
+      - ${SERVER_PORT}:8080
+    restart: unless-stopped
+    environment:
+      LOCAL_DB_URL: ${LOCAL_DB_URL}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}

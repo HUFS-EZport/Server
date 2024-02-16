@@ -29,11 +29,20 @@ jobs:
         run: |
           ${{ env.WITH_SSH }} "cd ~/Server && git pull origin main"
 
+      - name: 'Set .env file'
+        if: always()
+        run: |
+          echo "SERVER_PORT=${{ secrets.TEST_SERVER_PORT }}" > .env
+          echo "LOCAL_DB_URL=${{ secrets.TEST_SERVER_DB_URL }}" >> .env
+          echo "MYSQL_PASSWORD=${{ secrets.TEST_SERVER_DB_PW }}" >> .env
+          echo "MYSQL_USER=${{ secrets.TEST_SERVER_DB_USER }}" >> .env
+          echo "JWT_SECRET_KEY=${{ secrets.TEST_SERVER_JWT_SECRET }}" >> .env
+
+          scp -o StrictHostKeyChecking=no -i ./rsa_id -P ${{ secrets.TEST_SERVER_SSH_PORT }} .env ${{ secrets.TEST_SERVER_SSH_USERNAME }}@${{ secrets.TEST_SERVER_SSH_URL }}:~/Server/.env
+
       - name: 'Start server'
         if: always()
         run: |
-          echo "export LOCAL_DB_URL=${{ secrets.TEST_SERVER_DB_URL }}" >> ./run.sh
-          echo "export MYSQL_PASSWORD=${{ secrets.TEST_SERVER_DB_PW }}" >> ./run.sh
           echo "cd ~/Server && chmod +x run-by-docker.sh && ./run-by-docker.sh" >> ./run.sh
 
           ${{ env.WITH_SSH }} "bash -s" < ./run.sh
