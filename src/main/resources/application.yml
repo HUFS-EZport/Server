@@ -1,4 +1,8 @@
 spring:
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
   datasource:
     url: ${DB_URL}
     username: ${MYSQL_USER}
@@ -19,3 +23,7 @@ auth:
     secretKey: ${JWT_SECRET_KEY}
     accessExp: 3600
     refreshExp: 592000
+---
+naver:
+  mail:
+    password: ${NAVER_MAIL_PASSWORD}
