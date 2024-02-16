@@ -42,7 +42,13 @@ public class SecurityConfig {
             "/api-docs/**",
             "/users/signup",
             "/users/login",
-            "/users/email/**"
+            "/users/email/**",
+            "/v3/api-docs/**",
+            "/health",
+            "/swagger-ui/**",
+            "/swagger-ui.html",
+            "/swagger-resources/**",
+            "/v2/api-docs/**",
     };
 
     @Component
