@@ -1,7 +1,8 @@
-package com.example.ezports.domain.mapping.entity;
+package com.example.ezports.domain.mapping.favourite.entity;
 
+import com.example.ezports.domain.common.BaseDateTimeEntity;
+import com.example.ezports.domain.league.entity.League;
 import com.example.ezports.domain.member.entity.Member;
-import com.example.ezports.domain.team.entity.Team;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class FavouriteTeam {
+public class FavouriteLeague extends BaseDateTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,7 +20,7 @@ public class FavouriteTeam {
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
-    @JoinColumn(name = "teamId")
+    @JoinColumn(name = "leagueId")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Team team;
+    private League league;
 }

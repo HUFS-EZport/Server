@@ -61,6 +61,24 @@ public class MatchConverter {
                         .id(match.getId())
                         .homeTeamName(match.getHomeTeam().getName())
                         .awayTeamName(match.getAwayTeam().getName())
+                        .homeTeamLogoUrl(match.getHomeTeam().getLogoUrl())
+                        .awayTeamLogoUrl(match.getAwayTeam().getLogoUrl())
+                        .homeTeamScore(match.getHomeTeamScore())
+                        .awayTeamScore(match.getAwayTeamScore())
+                        .matchDate(match.getMatchDate())
+                        .matchStatus(match.getMatchStatus())
+                        .build())
+                .collect(Collectors.toList());
+    }
+
+    public List<MatchResponseDTO.getTeamMatch> toGetTeamMatch(List<Match> matches) {
+        return matches.stream()
+                .map(match -> MatchResponseDTO.getTeamMatch.builder()
+                        .id(match.getId())
+                        .homeTeamName(match.getHomeTeam().getName())
+                        .awayTeamName(match.getAwayTeam().getName())
+                        .homeTeamLogoUrl(match.getHomeTeam().getLogoUrl())
+                        .awayTeamLogoUrl(match.getAwayTeam().getLogoUrl())
                         .homeTeamScore(match.getHomeTeamScore())
                         .awayTeamScore(match.getAwayTeamScore())
                         .matchDate(match.getMatchDate())

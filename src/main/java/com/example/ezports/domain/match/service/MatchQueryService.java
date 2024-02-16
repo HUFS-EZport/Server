@@ -3,6 +3,7 @@ package com.example.ezports.domain.match.service;
 import com.example.ezports.domain.league.entity.League;
 import com.example.ezports.domain.match.entity.Match;
 import com.example.ezports.domain.match.repository.MatchRepository;
+import com.example.ezports.domain.team.entity.Team;
 import com.example.ezports.global.exception.GeneralException;
 import com.example.ezports.global.exception.GlobalErrorCode;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +23,9 @@ public class MatchQueryService {
 
     public List<Match> getByLeague(League league) {
         return matchRepository.findAllByLeague(league);
+    }
+
+    public List<Match> getByTeam(Team team) {
+        return matchRepository.findAllByTeam(team);
     }
 }
