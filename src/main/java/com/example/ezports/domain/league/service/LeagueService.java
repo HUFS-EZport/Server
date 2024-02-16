@@ -4,6 +4,7 @@ import com.example.ezports.domain.league.converter.LeagueConverter;
 import com.example.ezports.domain.league.dto.LeagueRequestDTO;
 import com.example.ezports.domain.league.dto.LeagueResponseDTO;
 import com.example.ezports.domain.league.entity.League;
+import com.example.ezports.domain.mapping.favourite.service.FavouriteQueryService;
 import com.example.ezports.domain.mapping.participant.converter.ParticipantConverter;
 import com.example.ezports.domain.mapping.participant.entity.Participant;
 import com.example.ezports.domain.mapping.participant.service.ParticipantService;
@@ -11,6 +12,7 @@ import com.example.ezports.domain.match.converter.MatchConverter;
 import com.example.ezports.domain.match.dto.MatchResponseDTO;
 import com.example.ezports.domain.match.entity.Match;
 import com.example.ezports.domain.match.service.MatchQueryService;
+import com.example.ezports.domain.member.auth.utils.MemberUtils;
 import com.example.ezports.domain.sport.entity.Sport;
 import com.example.ezports.domain.sport.service.SportQueryService;
 import com.example.ezports.domain.team.dto.TeamResponseDTO;
@@ -31,6 +33,8 @@ public class LeagueService {
     private final MatchQueryService matchQueryService;
     private final MatchConverter matchConverter;
     private final SportQueryService sportQueryService;
+    private final FavouriteQueryService favouriteQueryService;
+    private final MemberUtils memberUtils;
 
     @Transactional
     public LeagueResponseDTO.createLeague createLeague(LeagueRequestDTO.createLeague request) {
@@ -42,12 +46,14 @@ public class LeagueService {
 
     @Transactional
     public LeagueResponseDTO.getLeague getLeague(Long leagueId) {
+        Long memberId = memberUtils.getCurrentMemberId();
         League league = leagueQueryService.getLeague(leagueId);
+        boolean isFavourite = favouriteQueryService.isFavouriteLeague(memberId, leagueId);
         List<Participant> participants = participantService.getParticipants(league);
         List<TeamResponseDTO.getParticipantTeam> teams = participantConverter.toGetParticipantTeam(participants);
         List<Match> matches = matchQueryService.getByLeague(league);
         List<MatchResponseDTO.getLeagueMatch> leagueMatches = matchConverter.toGetLeagueMatch(matches);
-        return leagueConverter.toGetLeague(league,teams, leagueMatches);
+        return leagueConverter.toGetLeague(league, teams, leagueMatches, isFavourite);
     }
 
     @Transactional

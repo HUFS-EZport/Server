@@ -29,12 +29,13 @@ public class LeagueConverter {
                 .build();
     }
 
-    public LeagueResponseDTO.getLeague toGetLeague(League league, List<TeamResponseDTO.getParticipantTeam> teams, List<MatchResponseDTO.getLeagueMatch> matches) {
+    public LeagueResponseDTO.getLeague toGetLeague(League league, List<TeamResponseDTO.getParticipantTeam> teams, List<MatchResponseDTO.getLeagueMatch> matches, boolean isFavourite) {
         return LeagueResponseDTO.getLeague.builder()
                 .id(league.getId())
                 .name(league.getName())
                 .information(league.getInformation())
                 .logoUrl(league.getLogoUrl())
+                .isFavourite(isFavourite)
                 .teams(teams)
                 .matches(matches)
                 .build();

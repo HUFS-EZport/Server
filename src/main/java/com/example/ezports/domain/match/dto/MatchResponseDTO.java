@@ -50,6 +50,25 @@ public class MatchResponseDTO {
         private Long id;
         private String homeTeamName;
         private String awayTeamName;
+        private String homeTeamLogoUrl;
+        private String awayTeamLogoUrl;
+        private Integer homeTeamScore;
+        private Integer awayTeamScore;
+        private LocalDateTime matchDate;
+        private MatchStatus matchStatus;
+
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class getTeamMatch {
+        private Long id;
+        private String homeTeamName;
+        private String awayTeamName;
+        private String homeTeamLogoUrl;
+        private String awayTeamLogoUrl;
         private Integer homeTeamScore;
         private Integer awayTeamScore;
         private LocalDateTime matchDate;
