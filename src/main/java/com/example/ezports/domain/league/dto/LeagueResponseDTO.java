@@ -1,8 +1,6 @@
 package com.example.ezports.domain.league.dto;
 
-import com.example.ezports.domain.mapping.entity.Participant;
 import com.example.ezports.domain.match.dto.MatchResponseDTO;
-import com.example.ezports.domain.match.entity.Match;
 import com.example.ezports.domain.team.dto.TeamResponseDTO;
 import lombok.*;
 

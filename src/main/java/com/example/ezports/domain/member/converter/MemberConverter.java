@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-
 public class MemberConverter {
 
     public Member toMember(String email, String password, String nickname) {

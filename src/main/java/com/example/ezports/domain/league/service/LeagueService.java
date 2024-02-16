@@ -4,9 +4,9 @@ import com.example.ezports.domain.league.converter.LeagueConverter;
 import com.example.ezports.domain.league.dto.LeagueRequestDTO;
 import com.example.ezports.domain.league.dto.LeagueResponseDTO;
 import com.example.ezports.domain.league.entity.League;
-import com.example.ezports.domain.mapping.converter.ParticipantConverter;
-import com.example.ezports.domain.mapping.entity.Participant;
-import com.example.ezports.domain.mapping.service.ParticipantService;
+import com.example.ezports.domain.mapping.participant.converter.ParticipantConverter;
+import com.example.ezports.domain.mapping.participant.entity.Participant;
+import com.example.ezports.domain.mapping.participant.service.ParticipantService;
 import com.example.ezports.domain.match.converter.MatchConverter;
 import com.example.ezports.domain.match.dto.MatchResponseDTO;
 import com.example.ezports.domain.match.entity.Match;
@@ -19,7 +19,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor

@@ -2,10 +2,7 @@ package com.example.ezports.domain.league.converter;
 
 import com.example.ezports.domain.league.dto.LeagueResponseDTO;
 import com.example.ezports.domain.league.entity.League;
-import com.example.ezports.domain.mapping.dto.ParticipantResponseDTO;
-import com.example.ezports.domain.mapping.entity.Participant;
 import com.example.ezports.domain.match.dto.MatchResponseDTO;
-import com.example.ezports.domain.match.entity.Match;
 import com.example.ezports.domain.sport.entity.Sport;
 import com.example.ezports.domain.team.dto.TeamResponseDTO;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
-package com.example.ezports.domain.mapping.entity;
+package com.example.ezports.domain.mapping.participant.entity;
 
 import com.example.ezports.domain.league.entity.League;
-import com.example.ezports.domain.member.entity.Member;
+import com.example.ezports.domain.team.entity.Team;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,16 +10,21 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class FavouriteLeague {
+public class Participant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name = "memberId")
+    @JoinColumn(name = "teamId")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Member member;
+    private Team team;
 
     @JoinColumn(name = "leagueId")
     @ManyToOne(fetch = FetchType.LAZY)
     private League league;
+
+    public void updateParticipant(Team team, League league) {
+        this.team = team;
+        this.league = league;
+    }
 }

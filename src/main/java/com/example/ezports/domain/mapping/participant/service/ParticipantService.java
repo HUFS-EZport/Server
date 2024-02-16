@@ -1,8 +1,8 @@
-package com.example.ezports.domain.mapping.service;
+package com.example.ezports.domain.mapping.participant.service;
 
 import com.example.ezports.domain.league.entity.League;
-import com.example.ezports.domain.mapping.entity.Participant;
-import com.example.ezports.domain.mapping.repository.ParticipantRepository;
+import com.example.ezports.domain.mapping.participant.entity.Participant;
+import com.example.ezports.domain.mapping.participant.repository.ParticipantRepository;
 import com.example.ezports.domain.team.entity.Team;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
