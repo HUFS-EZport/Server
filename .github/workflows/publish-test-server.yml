@@ -33,7 +33,7 @@ jobs:
         if: always()
         run: |
           echo "SERVER_PORT=${{ secrets.TEST_SERVER_PORT }}" > .env
-          echo "LOCAL_DB_URL=${{ secrets.TEST_SERVER_DB_URL }}" >> .env
+          echo "DB_URL=${{ secrets.TEST_SERVER_DB_URL }}" >> .env
           echo "MYSQL_PASSWORD=${{ secrets.TEST_SERVER_DB_PW }}" >> .env
           echo "MYSQL_USER=${{ secrets.TEST_SERVER_DB_USER }}" >> .env
           echo "JWT_SECRET_KEY=${{ secrets.TEST_SERVER_JWT_SECRET }}" >> .env
