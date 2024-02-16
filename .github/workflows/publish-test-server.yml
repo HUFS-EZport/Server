@@ -22,7 +22,7 @@ jobs:
       
       - name: 'Stop exist server'
         run: |
-          ${{ env.WITH_SSH }} "cd ~/Server && docker-compose down"
+          ${{ env.WITH_SSH }} "cd ~/Server && docker-compose -f test-server.compose.yml down"
 
       - name: 'Pull latest code'
         if: always()
