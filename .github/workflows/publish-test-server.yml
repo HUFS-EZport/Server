@@ -36,7 +36,12 @@ jobs:
           echo "DB_URL=${{ secrets.TEST_SERVER_DB_URL }}" >> .env
           echo "MYSQL_PASSWORD=${{ secrets.TEST_SERVER_DB_PW }}" >> .env
           echo "MYSQL_USER=${{ secrets.TEST_SERVER_DB_USER }}" >> .env
+          echo "REDIS_HOST=${{ secrets.TEST_SERVER_REDIS_HOST }}" >> .env
+          echo "REDIS_PORT=${{ secrets.TEST_SERVER_REDIS_PORT }}" >> .env
+          echo "REDIS_PASSWORD=${{ secrets.TEST_SERVER_REDIS_PW }}" >> .env
           echo "JWT_SECRET_KEY=${{ secrets.TEST_SERVER_JWT_SECRET }}" >> .env
+          echo "NAVER_MAIL_PASSWORD=${{ secrets.TEST_SERVER_MAIL_PW }}">> .env
+          echo "SERVER_URL"=${{ secrets.TEST_SERVER_URL }} >> .env
 
           scp -o StrictHostKeyChecking=no -i ./rsa_id -P ${{ secrets.TEST_SERVER_SSH_PORT }} .env ${{ secrets.TEST_SERVER_SSH_USERNAME }}@${{ secrets.TEST_SERVER_SSH_URL }}:~/Server/.env
 
