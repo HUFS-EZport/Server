@@ -1,15 +1,12 @@
 package com.example.ezports.domain.league.entity;
 
 import com.example.ezports.domain.common.BaseDateTimeEntity;
-import com.example.ezports.domain.mapping.entity.Participant;
+import com.example.ezports.domain.mapping.participant.entity.Participant;
 import com.example.ezports.domain.sport.entity.Sport;
-import com.example.ezports.domain.team.entity.Team;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity

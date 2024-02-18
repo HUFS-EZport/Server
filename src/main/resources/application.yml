@@ -1,4 +1,8 @@
 spring:
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
   datasource:
     url: ${DB_URL}
     username: ${MYSQL_USER}
@@ -11,7 +15,7 @@ spring:
         format_sql: true
         use_sql_comments: true
         hbm2ddl:
-          auto: create-drop
+          auto: update
         default_batch_fetch_size: 1000
 ---
 auth:
@@ -19,3 +23,7 @@ auth:
     secretKey: ${JWT_SECRET_KEY}
     accessExp: 3600
     refreshExp: 592000
+---
+naver:
+  mail:
+    password: ${NAVER_MAIL_PASSWORD}

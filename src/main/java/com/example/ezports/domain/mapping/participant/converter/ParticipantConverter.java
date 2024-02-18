@@ -1,8 +1,8 @@
-package com.example.ezports.domain.mapping.converter;
+package com.example.ezports.domain.mapping.participant.converter;
 
 import com.example.ezports.domain.league.dto.LeagueResponseDTO;
 import com.example.ezports.domain.league.entity.League;
-import com.example.ezports.domain.mapping.entity.Participant;
+import com.example.ezports.domain.mapping.participant.entity.Participant;
 import com.example.ezports.domain.team.dto.TeamResponseDTO;
 import com.example.ezports.domain.team.entity.Team;
 import org.springframework.stereotype.Component;

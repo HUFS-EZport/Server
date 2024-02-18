@@ -1,7 +1,7 @@
-package com.example.ezports.domain.mapping.repository;
+package com.example.ezports.domain.mapping.participant.repository;
 
 import com.example.ezports.domain.league.entity.League;
-import com.example.ezports.domain.mapping.entity.Participant;
+import com.example.ezports.domain.mapping.participant.entity.Participant;
 import com.example.ezports.domain.team.entity.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
