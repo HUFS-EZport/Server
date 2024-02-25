@@ -49,6 +49,8 @@ public class SecurityConfig {
             "/swagger-ui.html",
             "/swagger-resources/**",
             "/v2/api-docs/**",
+            "/league/**",
+            "/team/**"
     };
 
     @Component
