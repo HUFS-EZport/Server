@@ -37,6 +37,16 @@ public class MemberResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
+    public static class reissue {
+        private Long memberId;
+        private String accessToken;
+        private String refreshToken;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class getMember {
         private Long id;
         private String email;
