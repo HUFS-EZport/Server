@@ -55,4 +55,12 @@ public class MemberConverter {
                 .map(this::toGetMember)
                 .collect(Collectors.toList());
     }
+
+    public MemberResponseDTO.reissue toReissue(Long memberId, String newAccessToken, String newRefreshToken) {
+        return MemberResponseDTO.reissue.builder()
+                .memberId(memberId)
+                .accessToken(newAccessToken)
+                .refreshToken(newRefreshToken)
+                .build();
+    }
 }

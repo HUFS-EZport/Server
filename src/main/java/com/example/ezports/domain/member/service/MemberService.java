@@ -86,4 +86,17 @@ public class MemberService {
         Member member = memberQueryService.getMember(memberId);
         memberCommandService.withdraw(member);
     }
+
+    @Transactional
+    public MemberResponseDTO.reissue reissue(MemberRequestDTO.reissue request) {
+        String refreshToken = request.getRefreshToken();
+
+        Long memberId = jwtTokenService.parseRefreshToken(refreshToken);
+        Member member = memberQueryService.getMember(memberId);
+        String role = member.getRole().name();
+        String newAccessToken = jwtTokenService.generateAccessToken(member.getId(), role);
+        String newRefreshToken = jwtTokenService.generateRefreshToken(member.getId());
+
+        return memberConverter.toReissue(memberId, newAccessToken, newRefreshToken);
+    }
 }

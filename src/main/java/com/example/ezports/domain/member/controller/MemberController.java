@@ -47,7 +47,12 @@ public class MemberController {
         return ApiResponse.onSuccess(memberService.login(request));
     }
 
-
+    @PostMapping("/reissue")
+    public ApiResponse<MemberResponseDTO.reissue> reissue(
+            @RequestBody MemberRequestDTO.reissue request
+    ) {
+        return ApiResponse.onSuccess(memberService.reissue(request));
+    }
 
     @GetMapping("/all")
     public ApiResponse<List<MemberResponseDTO.getMember>> getMembers() {
